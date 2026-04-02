@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "Frontend Fan"
-  text: "A VitePress Site2"
+  text: "A VitePress Site"
   tagline: My great project tagline
   actions:
     - theme: brand
