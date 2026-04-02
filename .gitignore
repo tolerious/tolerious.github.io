@@ -21,4 +21,4 @@ pnpm-debug.log*
 .vscode
 .idea
 
-.vitepress/cache/
+cache/
