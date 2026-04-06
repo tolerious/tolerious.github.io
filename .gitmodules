@@ -1,0 +1,3 @@
+[submodule "public/babel-handbook"]
+	path = public/babel-handbook
+	url = https://github.com/tolerious/babel-handbook
