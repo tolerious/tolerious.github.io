@@ -7,6 +7,10 @@ export default defineConfig({
   // 忽略子项目中的死链检查（如 /README, /CONTRIBUTING）
   ignoreDeadLinks: true,
 
+  head: [
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }]
+  ],
+
   locales: {
     root: {
       label: '简体中文',
