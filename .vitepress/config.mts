@@ -5,12 +5,16 @@ export default defineConfig({
   base: '/',
   title: "Frontend Fan",
   description: "A VitePress Site",
+
+  // 忽略子项目中的死链检查（如 /README, /CONTRIBUTING）
+  ignoreDeadLinks: true,
+
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Examples', link: '/markdown-examples' },
-      { text: 'Babel Handbook', link: '/babel-handbook/' }
+      { text: 'Babel Handbook', link: '/babel-handbook/index.html' }
     ],
 
     sidebar: [
