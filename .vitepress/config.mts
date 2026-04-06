@@ -19,8 +19,7 @@ export default defineConfig({
       description: "VitePress 站点",
       themeConfig: {
         nav: [
-          { text: '首页', link: '/' },
-          { text: 'Babel 手册', link: '/docs/babel-handbook/zh/' }
+          { text: '首页', link: '/' }
         ],
 
         sidebar: [
@@ -47,8 +46,7 @@ export default defineConfig({
       description: "A VitePress Site",
       themeConfig: {
         nav: [
-          { text: 'Home', link: '/en' },
-          { text: 'Babel Handbook', link: '/docs/babel-handbook/en/' }
+          { text: 'Home', link: '/en' }
         ],
 
         sidebar: [
