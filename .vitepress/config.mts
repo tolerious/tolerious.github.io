@@ -14,7 +14,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Examples', link: '/markdown-examples' },
-      { text: 'Babel Handbook', link: '/babel-handbook/' }
+      { text: 'Babel Handbook', link: '/babel-handbook/en/' }
     ],
 
     sidebar: [
@@ -23,6 +23,13 @@ export default defineConfig({
         items: [
           { text: 'Markdown Examples', link: '/markdown-examples' },
           { text: 'Runtime API Examples', link: '/api-examples' }
+        ]
+      },
+      {
+        text: 'Babel Handbook',
+        items: [
+          { text: 'English', link: '/babel-handbook/en/' },
+          { text: '中文', link: '/babel-handbook/zh/' }
         ]
       }
     ],
