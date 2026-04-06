@@ -14,7 +14,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Examples', link: '/markdown-examples' },
-      { text: 'Babel Handbook', link: '/babel-handbook/index.html' }
+      { text: 'Babel Handbook', link: '/babel-handbook/' }
     ],
 
     sidebar: [
