@@ -1,6 +1,91 @@
 <script setup>
 import { onMounted } from 'vue'
 
+const books = [
+  {
+    id: 'babel-en',
+    icon: '📖',
+    coverTitle: 'Babel',
+    title: 'Babel Handbook',
+    subtitle: 'English',
+    link: '/docs/babel-handbook/en/',
+    gradient: 'linear-gradient(135deg, #0ea5e9, #0284c7)'
+  },
+  {
+    id: 'babel-zh',
+    icon: '📖',
+    coverTitle: 'Babel',
+    title: 'Babel Handbook',
+    subtitle: '中文',
+    link: '/docs/babel-handbook/zh/',
+    gradient: 'linear-gradient(135deg, #6366f1, #8b5cf6)'
+  },
+  {
+    id: 'vue',
+    icon: '⚡',
+    coverTitle: 'Vue.js',
+    title: 'Vue.js',
+    subtitle: 'Coming Soon',
+    link: null,
+    gradient: 'linear-gradient(135deg, #42b883, #35495e)'
+  },
+  {
+    id: 'react',
+    icon: '⚛️',
+    coverTitle: 'React',
+    title: 'React',
+    subtitle: 'Coming Soon',
+    link: null,
+    gradient: 'linear-gradient(135deg, #61dafb, #282c34)'
+  },
+  {
+    id: 'typescript',
+    icon: '📘',
+    coverTitle: 'TypeScript',
+    title: 'TypeScript',
+    subtitle: 'Coming Soon',
+    link: null,
+    gradient: 'linear-gradient(135deg, #3178c6, #235a9e)'
+  },
+  {
+    id: 'nextjs',
+    icon: '▲',
+    coverTitle: 'Next.js',
+    title: 'Next.js',
+    subtitle: 'Coming Soon',
+    link: null,
+    gradient: 'linear-gradient(135deg, #000000, #333333)'
+  },
+  {
+    id: 'nodejs',
+    icon: '🟢',
+    coverTitle: 'Node.js',
+    title: 'Node.js',
+    subtitle: 'Coming Soon',
+    link: null,
+    gradient: 'linear-gradient(135deg, #68a063, #4c8545)'
+  },
+  {
+    id: 'webpack',
+    icon: '📦',
+    coverTitle: 'Webpack',
+    title: 'Webpack',
+    subtitle: 'Coming Soon',
+    link: null,
+    gradient: 'linear-gradient(135deg, #8dd6f9, #1c78c0)'
+  },
+  {
+    id: 'placeholder',
+    icon: '📚',
+    coverTitle: 'More',
+    title: 'More Tutorials',
+    subtitle: 'Stay Tuned',
+    link: null,
+    gradient: 'linear-gradient(135deg, #a0a0a0, #808080)',
+    isPlaceholder: true
+  }
+]
+
 onMounted(() => {
   const style = document.createElement('style')
   style.textContent = `
@@ -100,42 +185,6 @@ onMounted(() => {
       white-space: nowrap;
     }
 
-    .book-card.babel-zh .book-cover {
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
-    }
-
-    .book-card.babel-en .book-cover {
-      background: linear-gradient(135deg, #0ea5e9, #0284c7);
-    }
-
-    .book-card.vue .book-cover {
-      background: linear-gradient(135deg, #42b883, #35495e);
-    }
-
-    .book-card.react .book-cover {
-      background: linear-gradient(135deg, #61dafb, #282c34);
-    }
-
-    .book-card.typescript .book-cover {
-      background: linear-gradient(135deg, #3178c6, #235a9e);
-    }
-
-    .book-card.nextjs .book-cover {
-      background: linear-gradient(135deg, #000000, #333333);
-    }
-
-    .book-card.nodejs .book-cover {
-      background: linear-gradient(135deg, #68a063, #4c8545);
-    }
-
-    .book-card.webpack .book-cover {
-      background: linear-gradient(135deg, #8dd6f9, #1c78c0);
-    }
-
-    .book-card.placeholder .book-cover {
-      background: linear-gradient(135deg, #a0a0a0, #808080);
-    }
-
     .book-card.placeholder .book-cover-title,
     .book-card.placeholder .book-title {
       opacity: 0.5;
@@ -155,104 +204,29 @@ onMounted(() => {
 <template>
   <div class="bookshelf-container">
     <div class="books-grid">
-      <a href="/docs/babel-handbook/en/" class="book-card babel-en">
-        <div class="book-cover">
-          <span class="book-icon-large">📖</span>
-          <span class="book-cover-title">Babel</span>
-        </div>
-        <div class="book-info">
-          <div class="book-title">Babel Handbook</div>
-          <div class="book-subtitle">English</div>
-        </div>
-      </a>
+      <template v-for="book in books" :key="book.id">
+        <a v-if="book.link" :href="book.link" class="book-card" :class="{ placeholder: book.isPlaceholder }">
+          <div class="book-cover" :style="{ background: book.gradient }">
+            <span class="book-icon-large">{{ book.icon }}</span>
+            <span class="book-cover-title">{{ book.coverTitle }}</span>
+          </div>
+          <div class="book-info">
+            <div class="book-title">{{ book.title }}</div>
+            <div class="book-subtitle">{{ book.subtitle }}</div>
+          </div>
+        </a>
 
-      <a href="/docs/babel-handbook/zh/" class="book-card babel-zh">
-        <div class="book-cover">
-          <span class="book-icon-large">📖</span>
-          <span class="book-cover-title">Babel</span>
+        <div v-else class="book-card" :class="{ placeholder: book.isPlaceholder }">
+          <div class="book-cover" :style="{ background: book.gradient }">
+            <span class="book-icon-large">{{ book.icon }}</span>
+            <span class="book-cover-title">{{ book.coverTitle }}</span>
+          </div>
+          <div class="book-info">
+            <div class="book-title">{{ book.title }}</div>
+            <div class="book-subtitle">{{ book.subtitle }}</div>
+          </div>
         </div>
-        <div class="book-info">
-          <div class="book-title">Babel Handbook</div>
-          <div class="book-subtitle">中文</div>
-        </div>
-      </a>
-
-      <div class="book-card vue">
-        <div class="book-cover">
-          <span class="book-icon-large">⚡</span>
-          <span class="book-cover-title">Vue.js</span>
-        </div>
-        <div class="book-info">
-          <div class="book-title">Vue.js</div>
-          <div class="book-subtitle">Coming Soon</div>
-        </div>
-      </div>
-
-      <div class="book-card react">
-        <div class="book-cover">
-          <span class="book-icon-large">⚛️</span>
-          <span class="book-cover-title">React</span>
-        </div>
-        <div class="book-info">
-          <div class="book-title">React</div>
-          <div class="book-subtitle">Coming Soon</div>
-        </div>
-      </div>
-
-      <div class="book-card typescript">
-        <div class="book-cover">
-          <span class="book-icon-large">📘</span>
-          <span class="book-cover-title">TypeScript</span>
-        </div>
-        <div class="book-info">
-          <div class="book-title">TypeScript</div>
-          <div class="book-subtitle">Coming Soon</div>
-        </div>
-      </div>
-
-      <div class="book-card nextjs">
-        <div class="book-cover">
-          <span class="book-icon-large">▲</span>
-          <span class="book-cover-title">Next.js</span>
-        </div>
-        <div class="book-info">
-          <div class="book-title">Next.js</div>
-          <div class="book-subtitle">Coming Soon</div>
-        </div>
-      </div>
-
-      <div class="book-card nodejs">
-        <div class="book-cover">
-          <span class="book-icon-large">🟢</span>
-          <span class="book-cover-title">Node.js</span>
-        </div>
-        <div class="book-info">
-          <div class="book-title">Node.js</div>
-          <div class="book-subtitle">Coming Soon</div>
-        </div>
-      </div>
-
-      <div class="book-card webpack">
-        <div class="book-cover">
-          <span class="book-icon-large">📦</span>
-          <span class="book-cover-title">Webpack</span>
-        </div>
-        <div class="book-info">
-          <div class="book-title">Webpack</div>
-          <div class="book-subtitle">Coming Soon</div>
-        </div>
-      </div>
-
-      <div class="book-card placeholder">
-        <div class="book-cover">
-          <span class="book-icon-large">📚</span>
-          <span class="book-cover-title">More</span>
-        </div>
-        <div class="book-info">
-          <div class="book-title">More Tutorials</div>
-          <div class="book-subtitle">Stay Tuned</div>
-        </div>
-      </div>
+      </template>
     </div>
   </div>
 </template>
