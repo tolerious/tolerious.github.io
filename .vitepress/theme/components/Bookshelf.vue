@@ -7,18 +7,9 @@ const books = [
     icon: '📖',
     coverTitle: 'Babel',
     title: 'Babel Handbook',
-    subtitle: '中文版',
+    subtitle: '中文维护版',
     link: '/docs/babel-handbook/zh/',
     gradient: 'linear-gradient(135deg, #6366f1, #8b5cf6)'
-  },
-  {
-    id: 'babel-en',
-    icon: '📖',
-    coverTitle: 'Babel',
-    title: 'Babel Handbook',
-    subtitle: 'English',
-    link: '/docs/babel-handbook/en/',
-    gradient: 'linear-gradient(135deg, #0ea5e9, #0284c7)'
   },
 ]
 
